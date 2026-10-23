@@ -1,0 +1,39 @@
+示例版（已泛化）：每周简报定时任务配置
+============================================================
+本文件根据项目中的实际任务模板泛化改写：去掉了客户名称和本地路径，
+并缩短了规则部分。它用于说明配置结构，不能直接替代原交付包中的模板。
+
+Please create a scheduled task for me with exactly these settings:
+- Name: Weekly lead briefing (TEST)
+- Schedule: every Monday at 07:19, time zone Europe/Berlin
+- It requires this computer. Attach this folder: ~/Documents/<WORK_FOLDER>
+- Use this prompt, unchanged:
+
+TEST RUN of the weekly lead briefing (synthetic and anonymized test data only).
+
+## Settings for this run
+- Skill: load "weekly-briefing" and follow it. It loads pipeline-triage,
+  lead-analysis, next-action, content-matching and followup-email; say at the
+  top which were loaded.
+- Knowledge: <WORK_FOLDER>/Knowledge (K1 content library, K2 follow-up rules,
+  K3 taxonomy). Use these, not bundled copies.
+- Lead data (TEST MODE): <WORK_FOLDER>/TEST_PIPELINE. Read every lead file
+  listed in the INDEX; each file is one CRM lead.
+- Reference date: today's date. Nothing after it exists.
+- Files: the only file you may write is content_demand_log.csv.
+  Do not send emails, contact anyone, or change the CRM.
+
+## Rules (shortened)
+One primary category per lead; no double counting; agreed dates vs.
+recommended contact windows; conditional future steps are not active
+reminders; a missing log entry does not prove an action was not done.
+
+## Interactive Artifact
+Create a new Artifact "Weekly Lead Briefing — KW <ISO week>": header with
+TEST/LIVE status and data freshness, five counters, filters, one compact card
+per lead with four collapsed tabs (history · email draft · materials · why).
+German by default with an English toggle.
+
+## Delivery
+Send ONE message with the counts per priority and the 3 most urgent actions.
+Never claim a dashboard was created unless it actually was.
